@@ -1,13 +1,18 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.table-item {
+    gap: 10px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.btn-edit {
+    border: 2px blue solid;
+    background-color: blue;
+    color: white;
+    border-radius: 24px;
+    margin-right: 10px;
+}
+
+.btn-delete {
+    border: 2px red solid;
+    border-radius: 24px;
+    background-color: red;
+    color: white;
 }

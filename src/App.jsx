@@ -1,12 +1,18 @@
 import React from 'react';
 import Table from './components/Table'
+import Sidebar from './components/Sidebar';
+import Comp from './components/comp';
 
 function App() {
 
     return (
-        <React.Fragment>
-            <Table/>
-        </React.Fragment>
+        <div className='wrapper'>
+            <Sidebar />
+            <div className='main-control'>
+                <Table/>
+                <Comp/>
+            </div>
+        </div>
     );
 }
 

@@ -42,19 +42,21 @@ function Table() {
     }, [])
 
     return (
-        <table className='master-table'>
-            <thead>
-                <tr>
-                    <th className='username'>Username</th>
-                    <th className='group'>Group</th>
-                </tr>
-            </thead>
-            <tbody>
-                {item.map((user, index) => (
-                    <TableItem key={user.name} onDel={() => delItem(index)} onEdit={editItem} name={user.name} group={user.group} />
-                ))}
-            </tbody>
-        </table>
+        <div className='user-list'>
+            <table className='inner-list'>
+                <thead>
+                    <tr>
+                        <th className='username'>Username</th>
+                        <th className='group'>Group</th>
+                    </tr>
+                </thead>
+                <tbody className='table-body'>
+                    {item.map((user, index) => (
+                        <TableItem key={user.name} onDel={() => delItem(index)} onEdit={editItem} name={user.name} group={user.group} />
+                    ))}
+                </tbody>
+            </table>
+        </div>
     );
 }
 

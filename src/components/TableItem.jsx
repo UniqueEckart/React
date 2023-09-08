@@ -6,7 +6,7 @@ function TableItem({name, group, onEdit, onDel }) {
     return (
         <tr key={name} className='table-item'>
             <td><input type="text" value={item} onChange={(e) => setItem(e.target.value)}/></td>
-            <td>{group}</td>
+            <td className='user-group'>{group}</td>
             <td><button className='btn-edit' onClick={() => onEdit(item, initialitem)}>Edit</button></td>
             <td><button className='btn-delete' onClick={onDel}>Delete</button></td>
         </tr>

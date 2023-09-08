@@ -6,10 +6,10 @@ const mysql = require('mysql')
 const app = express()
 const port = 8000
 
-//var corsOptions = {
-//    origin: 'http://localhost:3000',
-//    optionsSuccessStauts: 200
-//}
+var corsOptions = {
+    origin: 'http://localhost:3000',
+    optionsSuccessStauts: 200
+}
 
 var connection = mysql.createConnection({
     host: 'localhost',
@@ -19,10 +19,10 @@ var connection = mysql.createConnection({
 })
 
 app.use(bodyParser.json())
-app.use(cors())
+app.use(cors(corsOptions))
 
 app.get('/', (req, res) => {
-    res.send("Working")
+    res.send("Not an actual Route!")
 })
 
 app.get('/users', (req, res) => {
@@ -34,11 +34,12 @@ app.get('/users', (req, res) => {
 
 app.post('/update-user', (req, res) => {
     connection.query(`UPDATE users SET name = '${req.body.newName}' WHERE name = '${req.body.oldName}';`)
+    res.sendStatus(200)
 })
 
 app.post('/delete-user', (req, res) => {
     connection.query(`DELETE FROM users WHERE name = '${req.body.name}';`)
-    res.send("Success")
+    res.sendStatus(200)
 })
 
 app.listen(port, () => {

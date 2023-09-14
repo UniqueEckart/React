@@ -33,12 +33,44 @@ app.get('/users', (req, res) => {
 })
 
 app.post('/update-user', (req, res) => {
-    connection.query(`UPDATE users SET name = '${req.body.newName}' WHERE name = '${req.body.oldName}';`)
+    connection.query('UPDATE `users` SET `name` = ?, `group` = ? WHERE `name` = ?;', [req.body.user.user, req.body.user.group, req.body.user.initialUser], (error, results, fields) => {
+        if (error) {
+            return console.error(error.message)
+        }
+    })
     res.sendStatus(200)
+})
+
+app.get('/cost', (req, res) => {
+    connection.query('SELECT * FROM cost_centers', function(err, rows, fields){
+        if (err) return res.sendStatus(404);
+        res.send(JSON.stringify(rows))
+    })
+})
+
+app.post('/update-cost', (req, res) => {
+    connection.query('UPDATE `users` SET `user_cost` = ? WHERE `id` = ?', [req.body.id, req.body.user_id], (error, results, fields) => {
+        if (error) {
+            return console.error(error.message)
+        }
+    })
+    res.sendStatus(200)
+})
+
+app.get('/users/:id', (req, res) => {
+    connection.query(`SELECT * FROM users WHERE id = ${req.params.id} LIMIT 1`, function(err, rows, fields){
+        if (err) return res.sendStatus(404);
+        res.send(rows[0])
+    })
 })
 
 app.post('/delete-user', (req, res) => {
     connection.query(`DELETE FROM users WHERE name = '${req.body.name}';`)
+    res.sendStatus(200)
+})
+
+app.post('/add-user', (req, res) => {
+    connection.query(`INSERT INTO users VALUES('${req.body.name}', '${req.body.group}');`)
     res.sendStatus(200)
 })
 

@@ -8,7 +8,7 @@ function Sidebar() {
                 <Link to="/"><img src='/logo192.png' alt="Homepage" /></Link>
             </div>
             <div className="flex flex-col p-5">
-                <Link to="" className='pb-5'>Link 1</Link>
+                <Link to="/" className='pb-5'><img src="/heim.png" alt="" /></Link>
                 <Link to="" className='pb-5'>Link 2</Link>
             </div>
         </div>

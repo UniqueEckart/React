@@ -626,6 +626,14 @@ video {
   margin-bottom: 0.5rem;
 }
 
+.ml-5 {
+  margin-left: 1.25rem;
+}
+
+.ml-8 {
+  margin-left: 2rem;
+}
+
 .flex {
   display: flex;
 }
@@ -763,6 +771,11 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-sky-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(3 105 161 / var(--tw-bg-opacity));
+}
+
 .p-1 {
   padding: 0.25rem;
 }
@@ -813,6 +826,26 @@ video {
   padding-bottom: 0.5rem;
 }
 
+.pl-2 {
+  padding-left: 0.5rem;
+}
+
+.pl-5 {
+  padding-left: 1.25rem;
+}
+
+.pl-6 {
+  padding-left: 1.5rem;
+}
+
+.pb-9 {
+  padding-bottom: 2.25rem;
+}
+
+.pb-10 {
+  padding-bottom: 2.5rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -848,4 +881,16 @@ video {
 
 .group:hover .group-hover\:bg-sky-500\/50 {
   background-color: rgb(14 165 233 / 0.5);
+}
+
+.group:hover .group-hover\:bg-sky-700\/5 {
+  background-color: rgb(3 105 161 / 0.05);
+}
+
+.group:hover .group-hover\:bg-sky-500\/5 {
+  background-color: rgb(14 165 233 / 0.05);
+}
+
+.group:hover .group-hover\:bg-sky-500\/75 {
+  background-color: rgb(14 165 233 / 0.75);
 }

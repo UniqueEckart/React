@@ -57,6 +57,13 @@ app.post('/update-cost', (req, res) => {
     res.sendStatus(200)
 })
 
+app.get('/documents', (req, res) => {
+    connection.query('SELECT * FROM documents', function(err, rows, fields){
+        if (err) return res.sendStatus(404);
+        res.send(JSON.stringify(rows))
+    })
+})
+
 app.get('/users/:id', (req, res) => {
     connection.query(`SELECT * FROM users WHERE id = ${req.params.id} LIMIT 1`, function(err, rows, fields){
         if (err) return res.sendStatus(404);

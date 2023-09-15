@@ -14,9 +14,6 @@ function TableItem({ id, name, group, standort, oe}) {
                         {name}
                     </div>
                     <div className=' w-full flex-wrap truncate flex items-center justify-center text-center bg-white text-black group-hover:bg-sky-500/50'>
-                        {group}
-                    </div>
-                    <div className=' w-full flex-wrap truncate flex items-center justify-center text-center bg-white text-black group-hover:bg-sky-500/50'>
                         {standort}
                     </div>
                     <div className=' w-full flex-wrap truncate flex items-center justify-center text-center bg-white text-black group-hover:bg-sky-500/50'>

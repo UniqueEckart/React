@@ -6,7 +6,7 @@ import axios from 'axios';
 function Table() {
     const [item, setItem] = useState([])
     const fetchData = () => {
-        axios.get('http://localhost:8000/users')
+        axios.get('http://localhost:8000/api/users')
             .then(response => {
                 setItem(response.data)
             })
@@ -28,9 +28,6 @@ function Table() {
                     Benutznername
                 </div>
                 <div className='w-full flex-wrap flex items-center justify-center text-center bg-sky-900 text-white'>
-                    Gruppe
-                </div>
-                <div className='w-full flex-wrap flex items-center justify-center text-center bg-sky-900 text-white'>
                     Standort
                 </div>
                 <div className='w-full flex-wrap flex items-center justify-center text-center bg-sky-900 text-white'>
@@ -38,7 +35,7 @@ function Table() {
                 </div>
             </div>
             {item.map((user) => (
-                <TableItem key={user.id} id={user.id} name={user.name} group={user.group} standort={user.standort} oe={user.oe} />
+                <TableItem key={user.id} id={user.id} name={user.name} standort={user.standort} oe={user.oe} />
             ))}
         </div>
     );

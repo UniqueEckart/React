@@ -9,16 +9,23 @@ function DropArea({class_name, name, onDrop, children}) {
         e.stopPropagation();
     }
 
-    useEffect(() => {
-        area.current.addEventListener("dragenter", preventDefault, false)
-        area.current.addEventListener("dragover", preventDefault, false)
-        area.current.addEventListener("dragleave", preventDefault, false)
-        area.current.addEventListener("drop", preventDefault, false)
-        area.current.addEventListener("dragenter", higlight, false)
-        area.current.addEventListener("dragover", higlight, false)
-        area.current.addEventListener("dragleave", unlight, false)
-        area.current.addEventListener("drop", unlight, false)
+    const highlight = (e) => {
+        e.target.classList.add("highlight")
+    }
 
+    const unhighlight = (e) => {
+        e.target.classList.remove("highlight")
+    }
+
+    useEffect(() => {
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            area.current.addEventListener(eventName, preventDefault, false)
+        })
+
+//        ['dragenter', 'dragover'].forEach(event => {
+//            area.current.addEventListener(event, highlight, false)
+//        })
+//
         area.current.addEventListener("drop", handleDrop, false)
     })
 
@@ -33,13 +40,6 @@ function DropArea({class_name, name, onDrop, children}) {
         onDrop({name: name, files: files})
     }
 
-    const higlight = (e) => {
-        e.target.classList.add("highlight")
-    }
-
-    const unlight = (e) => {
-        e.target.classList.remove("highlight")
-    }
 
     return (
     <div className={class_name} ref={area}>
